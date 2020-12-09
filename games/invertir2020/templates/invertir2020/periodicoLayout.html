@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Invertir2020</title>
+</head>
+<body>
+    <div>
+        <div>
+            <p>imagen</p>
+        </div>
+        {% if mes == 1%}
+            <h6>Mes: Enero</h6>
+        {% elif mes == 2%}
+            <h6>Mes: Febrero</h6>
+        {% elif mes == 3%}
+            <h6>Mes: Marzo</h6>
+        {% elif mes == 4%}
+            <h6>Mes: Abril</h6>
+        {% elif mes == 5%}
+            <h6>Mes: Mayo</h6>
+        {% elif mes == 6%}
+            <h6>Mes: Junio</h6>
+        {% elif mes == 7%}
+            <h6>Mes: Julio</h6>
+        {% elif mes == 8%}
+            <h6>Mes: Agosto</h6>
+        {% elif mes == 9%}
+            <h6>Mes: Septiembre</h6>
+        {% elif mes == 10%}
+            <h6>Mes: Octubre</h6>
+        {% elif mes == 11%}
+            <h6>Mes: Noviembre</h6>
+        {% elif mes == 12%}
+            <h6>Mes: Diciembre</h6>
+        {% elif mes == 13%}
+            <h6>Mes: Enero 2021</h6>
+        {% else}
+            <h6>Mes: </h6>
+        {%endif%}
+        <div>
+            <a href="{% url 'res'%}">Siguiente</a>
+        </div>
+        
+    </div>
+</body>
+</html>

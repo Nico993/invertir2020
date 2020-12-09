@@ -6,7 +6,20 @@
     <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
 </head>
 <body>
-    <h1>HOME</h1>
+    <div>
+        <div>
+            <a href="{% url 'facil'%}">Facil</a>
+        </div>
+        <div>
+            <a href="{% url 'medio'%}">Medio</a>
+        </div>
+        <div>
+            <a href="{% url 'dificil'%}">Dificil</a>
+        </div>
+        <div>
+            <a href="{% url 'comojugar'%}">Como Jugar</a>
+        </div>
+    </div>
     
 </body>
 </html>

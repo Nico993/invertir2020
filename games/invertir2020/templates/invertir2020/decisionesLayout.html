@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Invertir2020</title>
+</head>
+<body>
+    <form>
+        {% csrf_token%}
+        <h5>Tomar decisiones</h5>
+        {{ form }}
+        <p></p>
+        <input type="submit">
+    </form>
+    <h4>Efectivo: {{efectivo}}</h4>
+</body>
+</html>
