@@ -4,7 +4,7 @@
     <title>Invertir2020</title>
 </head>
 <body>
-    <form>
+    <form action="{% url 'periodico'%}" method="post">
         {% csrf_token%}
         <h5>Tomar decisiones</h5>
         {{ form }}

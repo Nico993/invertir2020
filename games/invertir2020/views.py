@@ -2,8 +2,8 @@ from django.shortcuts import render
 from . import functions
 from django import  forms
 
-precio = [("pre1",19.99),("pre2",29.99),("pre3",39.99),("pre4",49.99)]
-prod = [("prod1","25%"),("prod2","50%"),("prod3","75%"),("prod4","100%")] 
+precio = [(19.99,19.99),(29.99,29.99),(39.99,39.99),(49.99,49.99)]
+prod = [("25%","25%"),("50%","50%"),("75%","75%"),("100%","100%")] 
 
 class decisionsform(forms.Form):
     prestamobanco1 = forms.FloatField(label="Prestamos Banco 1", required= True, min_value=0)
@@ -73,3 +73,27 @@ def decisiones(request):
         "efectivo": request.session["efectivo"],
         "form": decisionsform()
     })
+def periodico(request):
+    if request.method == "POST":
+        form = decisionsform(request.POST)
+        if form.is_valid():
+            prestamobanco1 = form.cleaned_data["prestamobanco1"]
+            prestamobanco2 = form.cleaned_data["prestamobanco2"]
+            Precio = form.cleaned_data["Precio"]
+            Produccion = form.cleaned_data["Produccion"]
+            marketing = form.cleaned_data["marketing"]
+            calidad = form.cleaned_data["calidad"]
+            maquinaria = form.cleaned_data["maquinaria"]
+            devolver1 = form.cleaned_data["devolver1"]
+            devolver2 = form.cleaned_data["devolver2"]
+            band = functions.calculartodo(request, prestamobanco1, prestamobanco2, Precio, Produccion, marketing, calidad, maquinaria, devolver1, devolver2)
+        else:
+            return render(request, "invertir2020/decisionesLayout.html",{
+                "form": form
+            })
+    if band:
+        return render(request, "invertir2020/periodicoLayout.html",{
+            "mes": request.session["mes"]
+        })
+    else:
+        return render(request, "invertir2020/perdiste.html")
