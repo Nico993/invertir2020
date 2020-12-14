@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from . import functions
 from django import  forms
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views.decorators.cache import cache_control
 
 precio = [(19.99,19.99),(29.99,29.99),(39.99,39.99),(49.99,49.99)]
 prod = [(25,"25%"),(50,"50%"),(75,"75%"),(100,"100%")] 
@@ -43,7 +46,13 @@ def dificil(request):
     return render(request, "invertir2020/periodicoLayout.html",{
         "mes": request.session["mes"]
     })
-
+def cuarentena(request):
+    request.session["mes"] = request.session["mes"] + 1
+    band = functions.cuarentena(request)
+    if band:
+        return render(request, "invertir2020/cuarentena.html")
+    else:
+        return render(request, "invertir2020/perdiste.html")
 def resumen(request):
     return render(request, "invertir2020/resumenLayout.html",{
         "precio": round(request.session["precio"],2),
@@ -66,7 +75,8 @@ def resumen(request):
         "banco1": request.session["banco1"],
         "banco2": request.session["banco2"],
         "devolver1": request.session["devolverbanco1"],
-        "devolver2": request.session["devolverbanco2"]
+        "devolver2": request.session["devolverbanco2"],
+        "mes": request.session["mes"]
 
     })
 def decisiones(request):
@@ -93,11 +103,14 @@ def periodico(request):
             return render(request, "invertir2020/decisionesLayout.html",{
                 "form": form
             })
-    if(request.session["mes"] == 13):
-        return render(request, "invertir2020/ganaste.html")
     if band:
-        return render(request, "invertir2020/periodicoLayout.html",{
-            "mes": request.session["mes"]
-        })
+        if(request.session["mes"] == 13):
+            return render(request, "invertir2020/ganaste.html")
+        elif(request.session["mes"] == 3 or request.session["mes"] == 4):
+             return HttpResponseRedirect(reverse("cuarentena"))
+        else:
+            return render(request, "invertir2020/periodicoLayout.html",{
+                "mes": request.session["mes"]
+            })
     else:
         return render(request, "invertir2020/perdiste.html")

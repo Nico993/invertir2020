@@ -5,7 +5,11 @@
 </head>
 <body>
     <div>
-        <a href="{% url 'decisiones'%}">Siguiente</a>
+        {% if mes == 4 or mes == 3 %}
+            <a href="{% url 'cuarentena'%}">Siguiente</a>
+        {% else %}
+            <a href="{% url 'decisiones'%}">Siguiente</a>
+        {% endif %}
         <h4>RESUMEN</h4>
         <p>Precio: {{precio}}</p>
         <p>Produccion: {{produccion}}%</p>

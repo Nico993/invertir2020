@@ -332,4 +332,13 @@ def calculartodo(request, prestamobanco1, prestamobanco2, Precio, Produccion, ma
     else:
         return True
     
-
+def cuarentena(request):
+    request.session["marketing"] = 0
+    request.session["produccion"] = 100
+    request.session["precio"] = 0
+    gastos(request)
+    request.session["efectivo"] = request.session["efectivo"] - request.session["interesestotales"] - request.session["mantenimiento"] - request.session["sueldos"] - request.session["impuestos"] - request.session["costoprod"] - request.session["alquieler"] - request.session["suministros"]
+    if request.session["efectivo"] < 0:
+        return False
+    else:
+        return True
