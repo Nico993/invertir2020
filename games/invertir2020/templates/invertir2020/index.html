@@ -2,23 +2,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invertir 2020</title>
     <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'invertir2020/index.css'%}">
 </head>
 <body>
-    <div>
-        <div>
+    <div class = "principal">
+        <img src= "../../static/invertir2020/gifs/coin.gif" alt="money">
+        <div class = "secundario">
             <a href="{% url 'facil'%}">Facil</a>
         </div>
-        <div>
+        <div class = "secundario">
             <a href="{% url 'medio'%}">Medio</a>
         </div>
-        <div>
+        <div class = "secundario">
             <a href="{% url 'dificil'%}">Dificil</a>
         </div>
-        <div>
+        <div class = "secundario">
             <a href="{% url 'comojugar'%}">Como Jugar</a>
         </div>
+        <img src="../../static/invertir2020/gifs/coin.gif" alt="money">
     </div>
     
 </body>

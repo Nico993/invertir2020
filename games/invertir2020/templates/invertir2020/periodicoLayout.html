@@ -1,44 +1,112 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invertir2020</title>
+    <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'invertir2020/periodico.css'%}">
 </head>
 <body>
     <div>
-        <div>
-            <p>imagen</p>
+        <div class = "link">
+            <a href="{% url 'res'%}"><img src="../../static/invertir2020/gifs/flecha.gif" alt="siguiente"></a>
         </div>
-        {% if mes == 1%}
-            <h6>Mes: Enero</h6>
-        {% elif mes == 2%}
-            <h6>Mes: Febrero</h6>
-        {% elif mes == 3%}
-            <h6>Mes: Marzo</h6>
-        {% elif mes == 4%}
-            <h6>Mes: Abril</h6>
-        {% elif mes == 5%}
-            <h6>Mes: Mayo</h6>
-        {% elif mes == 6%}
-            <h6>Mes: Junio</h6>
-        {% elif mes == 7%}
-            <h6>Mes: Julio</h6>
-        {% elif mes == 8%}
-            <h6>Mes: Agosto</h6>
-        {% elif mes == 9%}
-            <h6>Mes: Septiembre</h6>
-        {% elif mes == 10%}
-            <h6>Mes: Octubre</h6>
-        {% elif mes == 11%}
-            <h6>Mes: Noviembre</h6>
-        {% elif mes == 12%}
-            <h6>Mes: Diciembre</h6>
-        {% elif mes == 13%}
-            <h6>Mes: Enero 2021</h6>
-        {% else}
-            <h6>Mes: </h6>
-        {%endif%}
         <div>
-            <a href="{% url 'res'%}">Siguiente</a>
+            {% if mes == 1%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/enero.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Enero</h6>
+                </div>
+            {% elif mes == 2%}
+            <div id = "imagen">
+                <img class = "img" src="../../static/invertir2020/images/febrero.png" alt="noticia">
+            </div>
+            <div id = "mes">
+                <h6>Mes: Febrero</h6>
+            </div>
+            {% elif mes == 3%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/marzo.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Marzo</h6>
+                </div>
+            {% elif mes == 4%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/abril.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Abril</h6>
+                </div>
+            {% elif mes == 5%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/mayo.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Mayo</h6>
+                </div>
+            {% elif mes == 6%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/junio.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Junio</h6>
+                </div>
+            {% elif mes == 7%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/julio.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Julio</h6>
+                </div>
+            {% elif mes == 8%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/agosto.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Agosto</h6>
+                </div>
+            {% elif mes == 9%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/septiembre.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Septiembre</h6>
+                </div>
+            {% elif mes == 10%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/octubre.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Octubre</h6>
+                </div>
+            {% elif mes == 11%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/noviembre.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Noviembre</h6>
+                </div>
+            {% elif mes == 12%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/diciembre.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Diciembre</h6>
+                </div>
+            {% elif mes == 13%}
+                <div id = "imagen">
+                    <img class = "img" src="../../static/invertir2020/images/enero 2021.png" alt="noticia">
+                </div>
+                <div id = "mes">
+                    <h6>Mes: Enero 2021</h6>
+                </div>
+            {% else}
+                <h6>Mes: </h6>
+            {%endif%}
         </div>
     </div>
 </body>

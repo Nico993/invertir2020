@@ -1,16 +1,26 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invertir2020</title>
+    <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'invertir2020/decisiones.css'%}">
 </head>
 <body>
-    <form action="{% url 'periodico'%}" method="post">
-        {% csrf_token%}
-        <h5>Tomar decisiones</h5>
-        {{ form }}
-        <p></p>
-        <input type="submit">
-    </form>
-    <h4>Efectivo: {{efectivo}}</h4>
+    <div id = "padre">
+        <div class = "principal">
+            <h5>Tomar decisiones</h5>
+            <form action="{% url 'periodico'%}" method="post">
+                {% csrf_token%}
+                {{ form }}
+                <p></p>
+                <input type="submit">
+            </form>
+        </div>
+        <div id = "efec">
+            <h4>Efectivo: {{efectivo}}</h4>
+        </div>
+    </div>
 </body>
 </html>

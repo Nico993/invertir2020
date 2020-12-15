@@ -47,13 +47,15 @@ def dificil(request):
         "mes": request.session["mes"]
     })
 def cuarentena(request):
-    request.session["mes"] = request.session["mes"] + 1
     band = functions.cuarentena(request)
     if band:
-        return render(request, "invertir2020/cuarentena.html")
+        return render(request, "invertir2020/cuarentena.html",{
+            "mes": request.session["mes"]
+        })
     else:
         return render(request, "invertir2020/perdiste.html")
 def resumen(request):
+    request.session["mes"] = request.session["mes"] + 1
     return render(request, "invertir2020/resumenLayout.html",{
         "precio": round(request.session["precio"],2),
         "produccion": request.session["produccion"],
@@ -97,14 +99,13 @@ def periodico(request):
             maquinaria = form.cleaned_data["maquinaria"]
             devolver1 = form.cleaned_data["devolver1"]
             devolver2 = form.cleaned_data["devolver2"]
-            request.session["mes"] = request.session["mes"] + 1
             band = functions.calculartodo(request, prestamobanco1, prestamobanco2, Precio, Produccion, marketing, calidad, maquinaria, devolver1, devolver2)
         else:
             return render(request, "invertir2020/decisionesLayout.html",{
                 "form": form
             })
     if band:
-        if(request.session["mes"] == 13):
+        if(request.session["mes"] == 14):
             return render(request, "invertir2020/ganaste.html")
         elif(request.session["mes"] == 3 or request.session["mes"] == 4):
              return HttpResponseRedirect(reverse("cuarentena"))

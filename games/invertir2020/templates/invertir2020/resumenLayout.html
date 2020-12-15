@@ -1,14 +1,22 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invertir2020</title>
+    <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'invertir2020/resumen.css'%}">
 </head>
 <body>
     <div>
-        {% if mes == 4 or mes == 3 %}
-            <a href="{% url 'cuarentena'%}">Siguiente</a>
+        {% if mes == 4 or mes == 5 %}
+        <div class = "link">
+            <a href="{% url 'cuarentena'%}"><img src="../../static/invertir2020/gifs/flecha.gif" alt="Siguiente"></a>
+        </div>
         {% else %}
-            <a href="{% url 'decisiones'%}">Siguiente</a>
+        <div class = "link">
+            <a href="{% url 'decisiones'%}"><img src="../../static/invertir2020/gifs/flecha.gif" alt="Siguiente"></a>
+        </div>
         {% endif %}
         <h4>RESUMEN</h4>
         <p>Precio: {{precio}}</p>
