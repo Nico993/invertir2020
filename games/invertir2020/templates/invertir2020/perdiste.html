@@ -1,9 +1,26 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perdiste</title>
+    <link rel="stylesheet" href="{% static 'invertir2020/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'invertir2020/perdisteyganaste.css'%}">
 </head>
 <body>
-    <h1>PERDISTE</h1>
+    <div>
+        <div id = "titulo">
+            <h1>Perdiste</h1>
+        </div>
+        <div id = "volver">
+            <a href="{% url 'index' %}">Volver a Jugar</a>
+        </div>
+        <div id = "texto">
+            <p>{{ texto }}</p>
+        </div>
+        <div id = "gif">
+            <img src="../../static/invertir2020/gifs/gameover.gif" alt="Perdiste">
+        </div>
+    </div>
 </body>
 </html>

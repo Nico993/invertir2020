@@ -53,7 +53,9 @@ def cuarentena(request):
             "mes": request.session["mes"]
         })
     else:
-        return render(request, "invertir2020/perdiste.html")
+        return render(request, "invertir2020/perdiste.html",{
+            "texto": "Invertiste mas dinero del que tenias, o le pediste mas dinero a los bancos del que te podian dar, o simplemente tu empresa no pudo afrontar los gastos"
+        })
 def resumen(request):
     request.session["mes"] = request.session["mes"] + 1
     return render(request, "invertir2020/resumenLayout.html",{
@@ -105,7 +107,7 @@ def periodico(request):
                 "form": form
             })
     if band:
-        if(request.session["mes"] == 14):
+        if(request.session["mes"] == 13):
             return render(request, "invertir2020/ganaste.html")
         elif(request.session["mes"] == 3 or request.session["mes"] == 4):
              return HttpResponseRedirect(reverse("cuarentena"))
@@ -114,4 +116,6 @@ def periodico(request):
                 "mes": request.session["mes"]
             })
     else:
-        return render(request, "invertir2020/perdiste.html")
+        return render(request, "invertir2020/perdiste.html",{
+            "texto": "Invertiste mas dinero del que tenias, o le pediste mas dinero a los bancos del que te podian dar, o simplemente tu empresa no pudo afrontar los gastos"
+        })

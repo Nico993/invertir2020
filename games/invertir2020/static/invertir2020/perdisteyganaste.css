@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+}
+#titulo{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: yellow;
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+    font-size: larger;
+}
+#volver{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: yellow;
+    margin-top: 10%;
+    height: fit-content;
+    width: fit-content;
+}
+#texto{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: yellow;
+    margin-top: 5%;
+    height: fit-content;
+    width: fit-content;
+}
+#gif{
+    text-align: center;
+    margin-top: 10%;
+}
